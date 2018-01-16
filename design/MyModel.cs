@@ -8,6 +8,6 @@ namespace design
 {
     class MyModel
     {
-
+       
     }
 }

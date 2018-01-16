@@ -7,16 +7,54 @@
         mc:Ignorable="d"
         Title="通讯录管理" Height="350" Width="525">
     <Window.Resources>
-        <RoutedCommand x:Key="menu" ></RoutedCommand>
+        <RoutedCommand x:Key="search" ></RoutedCommand>
     </Window.Resources>
     <Window.CommandBindings>
-        <CommandBinding Command="{StaticResource menu}" Executed="Onmenu" CanExecute="OnCanmenu"></CommandBinding> 
+        <CommandBinding Command="{StaticResource search}" Executed="Onseatch" CanExecute="OnCansearch"></CommandBinding>
     </Window.CommandBindings>
-    <Grid>
-        <StackPanel>
-            <Button Content="按钮" Width="50" Command="{StaticResource menu}" Margin="116.75,0,350.25,0"/>
-           
-           
+    <DockPanel Width="Auto" Height="Auto" LastChildFill="True">
+        <!--顶部菜单区域-->
+        <Menu Width="Auto" Height="20" Background="LightGray" DockPanel.Dock="Top">
+            <!--File菜单项-->
+            <MenuItem Header="文件">
+                <MenuItem Header="保存"/>
+                <Separator/>
+                <MenuItem Header="退出"/>
+            </MenuItem>
+            <!--About 菜单项-->
+            <MenuItem Header="帮助">
+                <MenuItem Header="关于本产品"/>
+            </MenuItem>
+        </Menu>
+
+        <!--状态栏-->
+        <StackPanel Width="Auto" Height="25" Background="LightGray" Orientation="Horizontal" DockPanel.Dock="Bottom">
+            <Label Width="Auto" Height="Auto" Content="状态栏" FontFamily="Arial" FontSize="12"/>
         </StackPanel>
-    </Grid>
+        <!--Left-->
+        <StackPanel Width="130" Height="Auto" Background="Gray" DockPanel.Dock="Left">
+            <Button Margin="10" Width="Auto" Height="30" Content="搜索"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="新建"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="删除"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="修改"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="备注"/>
+        </StackPanel>
+
+        <!--Right-->
+        <Grid Width="Auto" Height="Auto" Background="White">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+              
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+               
+            </Grid.RowDefinitions>
+
+            <DataGrid ItemsSource="{Binding Contacts}" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0"/>
+           
+        </Grid>
+    </DockPanel>
 </Window>

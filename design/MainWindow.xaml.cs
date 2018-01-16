@@ -25,12 +25,12 @@ namespace design
             InitializeComponent();
         }
 
-        private void Onmenu(object sender, ExecutedRoutedEventArgs e)
+        private void Onseatch(object sender, ExecutedRoutedEventArgs e)
         {
 
         }
 
-        private void OnCanmenu(object sender, CanExecuteRoutedEventArgs e)
+        private void OnCansearch(object sender, CanExecuteRoutedEventArgs e)
         {
 
         }
