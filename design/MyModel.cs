@@ -18,6 +18,7 @@ namespace design
         public void Submit()
         {
             DataContext.SubmitChanges();
+            
         }
         public Table<Contacts> Contacts
         {

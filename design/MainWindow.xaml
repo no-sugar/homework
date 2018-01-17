@@ -8,18 +8,21 @@
         Title="通讯录管理" Height="350" Width="525">
     <Window.Resources>
         <RoutedCommand x:Key="search" ></RoutedCommand>
+        <RoutedCommand x:Key="delete" ></RoutedCommand>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource search}" Executed="Onseatch" CanExecute="OnCansearch"></CommandBinding>
+        <CommandBinding Command="{StaticResource delete}" Executed="Ondelete" CanExecute="OnCandelete"></CommandBinding>
     </Window.CommandBindings>
+
     <DockPanel Width="Auto" Height="Auto" LastChildFill="True">
         <!--顶部菜单区域-->
         <Menu Width="Auto" Height="20" Background="LightGray" DockPanel.Dock="Top">
             <!--File菜单项-->
             <MenuItem Header="文件">
-                <MenuItem Header="保存"/>
+                <MenuItem Header="保存" Click="OnSace_Click"/>
                 <Separator/>
-                <MenuItem Header="退出"/>
+                <MenuItem Header="退出" Click="OnExit_Click"/>
             </MenuItem>
             <!--About 菜单项-->
             <MenuItem Header="帮助">
@@ -33,10 +36,10 @@
         </StackPanel>
         <!--Left-->
         <StackPanel Width="130" Height="Auto" Background="Gray" DockPanel.Dock="Left">
-            <Button Margin="10" Width="Auto" Height="30" Content="搜索"/>
-            <Button Margin="10" Width="Auto" Height="30" Content="新建"/>
-            <Button Margin="10" Width="Auto" Height="30" Content="删除"/>
-            <Button Margin="10" Width="Auto" Height="30" Content="修改"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="搜索" Command="{StaticResource search}"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="新建" Click="OnNew_Click"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="删除" Command="{StaticResource delete}"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="修改" Click="OnChange_Click"/>
             <Button Margin="10" Width="Auto" Height="30" Content="保存" Click="OnSace_Click" />
         </StackPanel>
 
