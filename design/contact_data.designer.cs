@@ -29,6 +29,9 @@ namespace design
 		
     #region 可扩展性方法定义
     partial void OnCreated();
+    partial void InsertContacts(Contacts instance);
+    partial void UpdateContacts(Contacts instance);
+    partial void DeleteContacts(Contacts instance);
     #endregion
 		
 		public contact_dataDataContext(string connection) : 
@@ -65,10 +68,12 @@ namespace design
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class Contacts
+	public partial class Contacts : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _id;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
 		
 		private string _name;
 		
@@ -80,12 +85,31 @@ namespace design
 		
 		private string _remarks;
 		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OntelephoneChanging(string value);
+    partial void OntelephoneChanged();
+    partial void OnorganizationChanging(string value);
+    partial void OnorganizationChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnremarksChanging(string value);
+    partial void OnremarksChanged();
+    #endregion
+		
 		public Contacts()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", CanBeNull=false)]
-		public string id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
@@ -95,7 +119,11 @@ namespace design
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
@@ -111,7 +139,11 @@ namespace design
 			{
 				if ((this._name != value))
 				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
 					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
@@ -127,7 +159,11 @@ namespace design
 			{
 				if ((this._telephone != value))
 				{
+					this.OntelephoneChanging(value);
+					this.SendPropertyChanging();
 					this._telephone = value;
+					this.SendPropertyChanged("telephone");
+					this.OntelephoneChanged();
 				}
 			}
 		}
@@ -143,7 +179,11 @@ namespace design
 			{
 				if ((this._organization != value))
 				{
+					this.OnorganizationChanging(value);
+					this.SendPropertyChanging();
 					this._organization = value;
+					this.SendPropertyChanged("organization");
+					this.OnorganizationChanged();
 				}
 			}
 		}
@@ -159,7 +199,11 @@ namespace design
 			{
 				if ((this._email != value))
 				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
 					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
 				}
 			}
 		}
@@ -175,8 +219,32 @@ namespace design
 			{
 				if ((this._remarks != value))
 				{
+					this.OnremarksChanging(value);
+					this.SendPropertyChanging();
 					this._remarks = value;
+					this.SendPropertyChanged("remarks");
+					this.OnremarksChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

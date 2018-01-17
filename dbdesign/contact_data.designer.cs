@@ -79,7 +79,7 @@ namespace dbdesign
 		
 		private string _telephone;
 		
-		private string _oroganization;
+		private string _organization;
 		
 		private string _email;
 		
@@ -95,8 +95,8 @@ namespace dbdesign
     partial void OnnameChanged();
     partial void OntelephoneChanging(string value);
     partial void OntelephoneChanged();
-    partial void OnoroganizationChanging(string value);
-    partial void OnoroganizationChanged();
+    partial void OnorganizationChanging(string value);
+    partial void OnorganizationChanged();
     partial void OnemailChanging(string value);
     partial void OnemailChanged();
     partial void OnremarksChanging(string value);
@@ -168,22 +168,22 @@ namespace dbdesign
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_oroganization")]
-		public string oroganization
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_organization")]
+		public string organization
 		{
 			get
 			{
-				return this._oroganization;
+				return this._organization;
 			}
 			set
 			{
-				if ((this._oroganization != value))
+				if ((this._organization != value))
 				{
-					this.OnoroganizationChanging(value);
+					this.OnorganizationChanging(value);
 					this.SendPropertyChanging();
-					this._oroganization = value;
-					this.SendPropertyChanged("oroganization");
-					this.OnoroganizationChanged();
+					this._organization = value;
+					this.SendPropertyChanged("organization");
+					this.OnorganizationChanged();
 				}
 			}
 		}

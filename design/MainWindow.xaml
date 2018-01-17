@@ -37,7 +37,7 @@
             <Button Margin="10" Width="Auto" Height="30" Content="新建"/>
             <Button Margin="10" Width="Auto" Height="30" Content="删除"/>
             <Button Margin="10" Width="Auto" Height="30" Content="修改"/>
-            <Button Margin="10" Width="Auto" Height="30" Content="备注"/>
+            <Button Margin="10" Width="Auto" Height="30" Content="保存" Click="OnSace_Click" />
         </StackPanel>
 
         <!--Right-->

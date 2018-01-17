@@ -32,6 +32,12 @@ namespace dbdesign
                     {
                         Console.WriteLine($"{aContact.name} : {aContact.telephone}");
                     }
+                    Console.WriteLine("插入新记录");
+                    Contacts aNewContact = new Contacts { name = "张三", telephone = "13562811111", email = "6300210@163.com", organization = "BUCT", remarks = "nothing" };
+                    aDataContext.Contacts.InsertOnSubmit(aNewContact);
+
+                    Console.WriteLine("提交数据……");
+                    aDataContext.SubmitChanges();
                 }
             }
             catch (Exception ex)

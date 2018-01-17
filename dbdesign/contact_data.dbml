@@ -4,7 +4,7 @@
       <Column Name="id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="name" Type="System.String" CanBeNull="false" />
       <Column Name="telephone" Type="System.String" CanBeNull="false" />
-      <Column Name="oroganization" Type="System.String" CanBeNull="true" />
+      <Column Name="organization" Storage="_oroganization" Type="System.String" CanBeNull="true" />
       <Column Name="email" Type="System.String" CanBeNull="true" />
       <Column Name="remarks" Type="System.String" CanBeNull="true" />
     </Type>

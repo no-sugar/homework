@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Class="contact_dataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="" Member="Contacts">
     <Type Name="Contacts">
-      <Column Member="id" Type="System.String" CanBeNull="false" />
-      <Column Member="name" Type="System.String" CanBeNull="false" />
-      <Column Member="telephone" Type="System.String" CanBeNull="false" />
-      <Column Member="organization" Type="System.String" CanBeNull="true" />
-      <Column Member="email" Type="System.String" CanBeNull="true" />
-      <Column Member="remarks" Type="System.String" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" CanBeNull="false" />
+      <Column Name="telephone" Type="System.String" CanBeNull="false" />
+      <Column Name="organization" Type="System.String" CanBeNull="true" />
+      <Column Name="email" Type="System.String" CanBeNull="true" />
+      <Column Name="remarks" Type="System.String" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

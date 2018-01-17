@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="contact_data.cs">
+      <DependentUpon>contact_data.dbml</DependentUpon>
+    </Compile>
     <Compile Include="contact_data.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
