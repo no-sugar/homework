@@ -119,7 +119,10 @@ namespace design
             MessageBox.Show("请在右侧区域直接修改后保存","提示");
         }
 
-     
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("这是一个通讯录管理软件V1.0", "关于软件");
+        }
     }
 
   

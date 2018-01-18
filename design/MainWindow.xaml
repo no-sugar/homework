@@ -19,13 +19,13 @@
         <!--顶部菜单区域-->
         <Menu Width="Auto" Height="20" Background="LightGray" DockPanel.Dock="Top">
             <!--File菜单项-->
-            <MenuItem Header="文件">
+            <MenuItem Header="菜单">
                 <MenuItem Header="保存" Click="OnSace_Click"/>
                 <Separator/>
                 <MenuItem Header="退出" Click="OnExit_Click"/>
             </MenuItem>
             <!--About 菜单项-->
-            <MenuItem Header="帮助">
+            <MenuItem Header="帮助" Click="MenuItem_Click">
                 <MenuItem Header="关于本产品"/>
             </MenuItem>
         </Menu>
