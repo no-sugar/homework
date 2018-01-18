@@ -48,7 +48,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-              
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -57,7 +57,7 @@
             </Grid.RowDefinitions>
 
             <DataGrid ItemsSource="{Binding Contacts}" Margin="10,10,10,10" Grid.Row="0" Grid.Column="0"/>
-           
+            <TextBox   Text="{Binding Search_result}" Margin="10,10,10,10" Grid.Row="0" Grid.Column="1"/>
         </Grid>
     </DockPanel>
 </Window>

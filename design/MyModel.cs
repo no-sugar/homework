@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 namespace design
 {
@@ -19,6 +20,47 @@ namespace design
         {
             DataContext.SubmitChanges();
             
+        }
+        public string Search_result { get { return _Search_result; } private set { if (_Search_result == value) return; _Search_result = value; OnPropertyChanged(nameof(Search_result)); } }
+        private string _Search_result;
+
+        //public string search(string s,out string result)
+        //{
+        //    result = "";
+        //    List<string> Datalist = new List<string>();
+        //    var contact = from r in DataContext.Contacts select r;
+        //    foreach(Contacts aContact in contact)
+        //    {
+        //        string contact_data = "ID:" + aContact.id + "Name" + aContact.name + "Telephone" + aContact.telephone + "Organization" + aContact.organization + "Email" + aContact.email + "Remarks" + aContact.remarks;
+        //        Datalist.Add(contact_data);
+        //    }
+        //    string RegexStr = ".*?Remarks:" + s;
+        //    for (int i = 0; i < Datalist.Count; i++)
+        //    {
+        //        if (Regex.IsMatch(Datalist[i], RegexStr))
+        //            result = result + Datalist[i] + "\r";
+        //    }
+        //    return result;
+        //}
+
+
+        public void search(string s)
+        {
+            string result = "";
+            List<string> Datalist = new List<string>();
+            var contact = from r in DataContext.Contacts select r;
+            foreach (Contacts aContact in contact)
+            {
+                string contact_data = "ID: " + aContact.id + " Name: " + aContact.name + " Telephone: " + aContact.telephone + " Organization: " + aContact.organization + " Email: " + aContact.email + " Remarks: " + aContact.remarks;
+                Datalist.Add(contact_data);
+            }
+            string RegexStr = ".*?Remarks: " + s;
+            for (int i = 0; i < Datalist.Count; i++)
+            {
+                if (Regex.IsMatch(Datalist[i], RegexStr))
+                    result = result + Datalist[i] + "\r";
+            }
+            Search_result = result+"test";
         }
         public Table<Contacts> Contacts
         {

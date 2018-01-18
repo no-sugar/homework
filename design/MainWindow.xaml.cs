@@ -31,6 +31,9 @@ namespace design
             this.DataContext = _Model;
         }
         private MainModel _Model;
+        //public string Search_result { get { return _Search_result; } private set { if (_Search_result == value) return; _Search_result = value; OnPropertyChanged(nameof(Search_result)); } }
+        //private string _Search_result;
+
 
         private void OnSace_Click(object sender, RoutedEventArgs e)
         {
@@ -49,13 +52,22 @@ namespace design
 
         private void Onseatch(object sender, ExecutedRoutedEventArgs e)
         {
-             
-       
+            try
+            {
+                string remark_seatch = Interaction.InputBox("请输入要搜索的备注信息", "搜索", "例如：客服");
+                //string result;
+                //_Model.search(remark_seatch,out result);
+                _Model.search(remark_seatch);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnCansearch(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = true;
         }
 
 
@@ -106,6 +118,8 @@ namespace design
         {
             MessageBox.Show("请在右侧区域直接修改后保存","提示");
         }
+
+     
     }
 
   
